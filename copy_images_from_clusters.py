@@ -1,7 +1,6 @@
 import os
 import shutil
 
-
 def copy_images_from_clusters(cluster_folder, dataset_folder):
     # Get list of cluster folders
     cluster_folders = [
