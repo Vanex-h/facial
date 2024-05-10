@@ -8,6 +8,7 @@ from tensorflow.keras.preprocessing import image
 from tqdm import tqdm
 import shutil
 
+
 # Function to extract features using VGG16
 def extract_features(img_path, model):
     img = image.load_img(img_path, target_size=(224, 224))
@@ -18,14 +19,19 @@ def extract_features(img_path, model):
     features = np.squeeze(features)
     return features
 
+
 # Load VGG16 model
-vgg16_model = kapp.vgg16.VGG16(weights='imagenet', include_top=False, pooling='avg')
+vgg16_model = kapp.vgg16.VGG16(weights="imagenet", include_top=False, pooling="avg")
 
 # Folder containing images
 images_folder = "dataset"
 
 # Get list of image files
-image_files = [os.path.join(images_folder, img) for img in os.listdir(images_folder) if img.endswith('.jpg')]
+image_files = [
+    os.path.join(images_folder, img)
+    for img in os.listdir(images_folder)
+    if img.endswith(".jpg")
+]
 
 # Extract features for all images
 all_features = []
